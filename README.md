@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+"This complete tool was fully designed by AI, and it has been carefully reviewed, tested, and officially approved by Fayez."
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Secure PDF Studio: Split & Merge
 
-## Available Scripts
+A high-performance, private, client-side web application for splitting and merging PDF documents. Built with **React**, standard **CSS** (no Tailwind), **pdf-lib**, and **jszip**.
 
-In the project directory, you can run:
+All operations execute strictly in the client's web browser memory. Documents are never transmitted to an external server, offering true confidentiality for legal, financial, and personal records.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Key Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 1. PDF Splitter
+- **Even Page Distribution**: Specify the desired number of parts ($k$), and the app dynamically calculates the distribution using:
+  $$\text{baseSize} = \lfloor N / k \rfloor, \quad \text{remainder} = N \pmod k$$
+  The first `remainder` parts receive $\text{baseSize} + 1$ pages, while the remaining parts receive $\text{baseSize}$ pages.
+- **Strict Naming Convention**: Each generated split file is named in ascending order:
+  `[OriginalFileName]_1.pdf`, `[OriginalFileName]_2.pdf`, etc.
+- **ZIP Packaging**: All extracted PDF parts are compressed and bundled on the fly into a single `[OriginalFileName]_split.zip` file using `jszip`.
 
-### `npm test`
+### 2. PDF Merger
+- **Multi-File Upload**: Select or drag-and-drop multiple PDF files simultaneously.
+- **Visual Sorter & Reordering**: Reorder files before merging using intuitive **Drag-and-Drop** or accessible **Move Up / Move Down** controls.
+- **Strict Sequence Execution**: Files are merged strictly according to the user-arranged sequence into a cohesive `merged_document.pdf`.
+- **Pre-Merge Insights**: Displays file sizes, individual page counts, and total combined page metrics before processing.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 3. Multi-Layer Security Architecture
+- **Strict File Extension Validation**: Only files terminating in `.pdf` (case-insensitive) are accepted.
+- **MIME Type Verification**: Strictly restricts MIME types to `application/pdf` or `application/x-pdf`.
+- **Binary Magic Byte Inspection**: Analyzes the file's raw header bytes (`%PDF-` / `0x25 0x50 0x44 0x46 0x2D`). Disguised executables, shell scripts, audio, or images disguised as `.pdf` are blocked before parsing.
+- **Encryption Detection**: Detects password-protected/encrypted PDFs and informs the user gracefully without crashing.
+- **Memory Safety**: Object URLs created during download triggers are immediately revoked via `URL.revokeObjectURL()` to prevent client memory bloat.
 
-### `npm run build`
+### 4. UI/UX Design System
+- Built with **pure standard CSS** using CSS Custom Properties (Variables).
+- Sleek dark aesthetic with glassmorphic depth (`backdrop-filter: blur`), glowing gradient highlights, and tactile button feedback.
+- Real-time animated **Progress Bar** with step-by-step progress tracking, percentages, and live status messaging.
+- Fully responsive across mobile, tablet, and widescreen displays.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Project Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```text
+secure-pdf-split-merge/
+├── index.html              # HTML entry with favicon references
+├── package.json            # Project dependencies & scripts
+├── public/
+│   └── favicon.svg         # Modern vector icon for the application
+├── src/
+│   ├── App.jsx             # Main React component (Split, Merge, Security logic)
+│   ├── App.css             # Vanilla CSS design system (No Tailwind)
+│   └── main.jsx            # React root mount point
+└── README.md               # Documentation & Run guide

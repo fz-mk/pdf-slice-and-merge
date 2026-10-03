@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+  </defs>
+  <!-- Background rounded surface -->
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#0b0f19" stroke="url(#grad1)" stroke-width="2.5"/>
+  
+  <!-- Back PDF Document -->
+  <path d="M22 14 H40 L48 22 V50 H22 Z" fill="#334155" opacity="0.6"/>
+  
+  <!-- Front PDF Document with folded corner -->
+  <path d="M16 18 H34 L44 28 V52 H16 Z" fill="url(#grad1)"/>
+  <path d="M34 18 V28 H44 Z" fill="#ffffff" opacity="0.35"/>
+  
+  <!-- Split/Merge Arrows & Pivot -->
+  <circle cx="25" cy="40" r="2.5" fill="#ffffff"/>
+  <circle cx="35" cy="40" r="2.5" fill="#ffffff"/>
+  <path d="M25 40 L35 40" stroke="#ffffff" stroke-width="2" stroke-dasharray="2 1"/>
+  <path d="M30 34 L30 46" stroke="#ffffff" stroke-width="2"/>
+  <path d="M27 37 L30 34 L33 37" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+</svg>
