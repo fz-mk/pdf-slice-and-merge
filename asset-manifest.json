@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/pdf-slice-and-merge/static/css/main.fada81cd.css",
+    "main.js": "/pdf-slice-and-merge/static/js/main.f7ee43ff.js",
+    "index.html": "/pdf-slice-and-merge/index.html",
+    "main.fada81cd.css.map": "/pdf-slice-and-merge/static/css/main.fada81cd.css.map",
+    "main.f7ee43ff.js.map": "/pdf-slice-and-merge/static/js/main.f7ee43ff.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fada81cd.css",
+    "static/js/main.f7ee43ff.js"
+  ]
+}
